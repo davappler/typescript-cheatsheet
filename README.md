@@ -232,3 +232,53 @@ interface ButtonProps {
 }
 
 ```
+
+- `React.ComponentProps` or `ComponentProps`
+
+```
+export const Button = ({ className, ...rest }: React.ComponentProps<"button">) => {
+  return (
+    <button {...rest} className={`default-classname ${className}`}></button>
+  );
+};s
+
+```
+
+- onChange input field => `e: React.ChangeEvent<HTMLInputElement>`
+
+- If we want to modify an existing type property we can do like this below:
+
+  - In this case below we are omitting the onChange value and adding a new onChange type with our own type value.
+
+    ```
+    type InputProps = Omit<ComponentProps<"input">, "onChange"> & {
+      onChange: (value: string) => void;
+    };
+
+
+    // a cleaner way to write InputProps
+    interface InputProps extends Omit<ComponentProps<"input">, "onChange"> {
+      onChange: (value: string) => void;
+    }
+
+    const Input = (props: InputProps) => {
+      return (
+        <input
+          {...props}
+          onChange={(e) => {
+            props.onChange(e.target.value);
+          }}
+        ></input>
+      );
+    };
+    ```
+
+  - We can also override the props
+    ```
+      type InputProps = OverrideProps<
+        ComponentProps<"input">,
+        {
+          onChange: (value: string) => void;
+        }
+      >;
+    ```
