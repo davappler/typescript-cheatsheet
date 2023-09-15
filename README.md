@@ -203,3 +203,32 @@ They should return `Promise`
 createUser: () => Promise<string>,
 
 ```
+
+## React Typescript
+
+- `React.FC` for functional components
+
+```
+ export const MyComponent: React.FC<Props> = (props: Props) => {
+  return <div>Hello world! </div>
+};
+```
+
+- children in react components => `React.ReactNode`
+
+```
+export const Button = (props: {children : React.ReactNode}) => {
+  return <button>{props.children}</button>;
+};
+```
+
+- onClick handlers => `React.MouseEventHandler` or `React.MouseEventHandler<HTMLButtonElement>` or `React.MouseEventHandler<HTMLElement>`
+
+```
+interface ButtonProps {
+  className: string;
+  children: React.ReactNode;
+  onClick: React.MouseEventHandler;
+}
+
+```
