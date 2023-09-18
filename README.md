@@ -282,3 +282,17 @@ export const Button = ({ className, ...rest }: React.ComponentProps<"button">) =
         }
       >;
     ```
+
+- Extracting props from a component and saving it into a type, we have this component `NavBar` and we extract props from it and save it in a variable.
+
+  ```
+  export const NavBar = (props: {
+    title: string;
+    links: string[];
+    children: React.ReactNode;
+  }) => {
+    return <div>Some content</div>;
+  };
+
+  const MyType= React.ComponentProps<typeof NavBar>;
+  ```
