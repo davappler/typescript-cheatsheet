@@ -1,6 +1,6 @@
 ## Typescript cheat-sheet
 
-In this repo, I will be sharing some most commonly used typescript types, this list will be biased because it will depend mostly on what I encounter the most in typescript 🚀
+In this repo, I will be sharing some most commonly used typescript types, this list will be based on what I encounter the most in typescript 🚀
 
 ## Code examples
 
